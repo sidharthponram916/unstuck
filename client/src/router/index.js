@@ -19,6 +19,16 @@ const routes = [
     path: '/register', 
     name: "SignUp", 
     component: () => import("../views/authentication/SignUp.vue")
+  }, 
+  { 
+    path: '/ask', 
+    name: "Ask", 
+    component: () => import('../views/questions/AskQuestion.vue')
+  }, 
+  { 
+    path: '/questions/:id', 
+    name: "Questions", 
+    component: () => import('../views/questions/QView.vue')
   }
 ]
 

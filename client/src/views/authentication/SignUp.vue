@@ -1,9 +1,8 @@
 <template>
-     <div>
-        
+     <div>  
          <div class = 'my-32 p-5 bg-gray-300'>  
               <h1 class = 'text-4xl font-bold mb-5'> Log In to <span class = 'font-bold bg-gray-500 text-white p-1 rounded'>📚UnStuck</span> </h1>
-         <form @submit.prevent = "signUp()">
+              <form @submit.prevent = "signUp()">
  
               <label class = 'font-bold text-2xl'>Display Name</label><br>
 
@@ -72,10 +71,10 @@ export default {
                        email: this.user.email, 
                        password: this.user.password, 
                        displayName: this.user.display_name, 
-                       subjects: this.user.subjects.split(', ')
+                       subjects: this.user.subjects.toLowerCase().split(', ')
                   })
-                   
-                  this.$http.defaults.headers.common.Authorization = data.token; 
+
+                  this.$http.defaults.headers.common['Authorization'] = data.token; 
 
                       localStorage.setItem("token", data.token); 
                       localStorage.setItem("id", data.user._id);
@@ -84,7 +83,7 @@ export default {
                   location.replace('/')
               }
               catch (e) { 
-                  alert("Please fill out all fields!");
+                  alert("There was an error. Please fill out all fields!");
                   console.log(e)
               }
          }

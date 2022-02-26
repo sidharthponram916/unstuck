@@ -12,6 +12,7 @@ app.use(express.urlencoded({ extended: true}));
 dbruns(); 
 
 app.use('/api/auth', require('./routes/user.routes.js')); 
+app.use('/api/questions', require('./routes/question.routes.js')); 
 
 app.listen(port, () => { 
       console.log(`UnStuck App is up and running on PORT: ` + port); 

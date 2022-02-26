@@ -10,22 +10,25 @@ Vue.prototype.$http = http;
 
 if (localStorage.getItem("token")) {
 
-  http.defaults.headers.common.Authorization = localStorage.getItem("token"); 
+  http.defaults.headers.common['Authorization'] = localStorage.getItem("token"); 
+
   store.commit("logIn"); 
 
   http.get(`/auth/find/${localStorage.getItem('id')}`)
-  .then( res  => store.commit("pushData", res.data))
+  .then( res  => { 
+    store.commit("pushData", res.data); 
+  })
   .catch(err => { 
       console.log(err.message);
 
-       delete http.defaults.headers.common.Authorization; 
+     /*  delete http.defaults.headers.common.Authorization; 
 
        localStorage.removeItem("id"); 
        localStorage.removeItem("token"); 
 
        store.commit("logOut"); 
 
-       location.replace('/login'); 
+       location.replace('/login'); */
   }) 
    
 }

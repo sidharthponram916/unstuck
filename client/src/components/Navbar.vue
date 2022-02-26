@@ -1,22 +1,22 @@
 <template>
     <ul class="fixed top-0 bg-blue-500 right-0 left-0 flex flex-auto items-center p-3 text-white shadow-lg ">
         <li class = 'mx-3'>
-            <span class = 'text-2xl text-white font-bold'> 📚 UnStuck  </span>
+            <a href = '/' class = 'text-2xl text-white font-bold'> 📚 UnStuck  </a>
         </li> 
         <li class = 'mx-3'>
-            <a href = '/ask' class = 'text-xl bg-yellow-600 text-white p-1 rounded font-bold'> Ask Question</a>
+            <a href = '/ask' class = 'text-sm font-bold bg-yellow-600 text-white p-1 rounded'> Ask Question</a>
         </li> 
         <li class = 'mx-3'>
-            <a href = '/post' class = 'text-xl bg-blue-700 text-white p-1 rounded  font-bold'>Post Notes</a>
+            <a href = '/post' class = 'text-md text-white p-1 rounded'>Post Notes</a>
         </li>  
         <li class = 'ml-auto'>
-            <a v-if = "$store.state.loggedIn == false" href = '/login' class = 'text-2xl text-white'>Log In</a>
+            <a v-if = "$store.state.loggedIn == false" href = '/login' class = 'text-sm text-white'>Log In</a>
         </li> 
          <li class = 'ml-5'>
-            <a v-if = "$store.state.loggedIn == false" href = '/register' class = 'text-2xl text-white'> Sign Up </a>
+            <a v-if = "$store.state.loggedIn == false" href = '/register' class = 'text-sm text-white'> Sign Up </a>
         </li> 
         <li class = 'ml-5'>
-            <a v-if = "$store.state.loggedIn == true" href = '' @click = 'logOut()' class = 'text-2xl text-white'> Log Out </a>
+            <a v-if = "$store.state.loggedIn == true" href = '' @click = 'logOut()' class = 'text-md text-white font-bold'>{{ this.$store.state.userData.displayName }}</a>
         </li> 
     </ul>
   
