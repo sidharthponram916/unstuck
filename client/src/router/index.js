@@ -6,10 +6,20 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/home',
+    path: '/',
     name: 'Home',
     component: Home
   },
+  { 
+    path: '/login', 
+    name: "Login", 
+    component: () => import('../views/authentication/LogIn.vue')
+  }, 
+  { 
+    path: '/register', 
+    name: "SignUp", 
+    component: () => import("../views/authentication/SignUp.vue")
+  }
 ]
 
 const router = new VueRouter({

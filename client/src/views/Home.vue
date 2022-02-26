@@ -1,5 +1,6 @@
 <template>
-  <div class="home">
+  <div class="my-36">
+    Hello World
   </div>
 </template>
 
@@ -10,6 +11,9 @@ export default {
   name: 'Home',
   components: {
     
+  }, 
+  async mounted() { 
+     if (this.$store.state.loggedIn === false) return location.replace('/login'); 
   }
 }
 </script>
