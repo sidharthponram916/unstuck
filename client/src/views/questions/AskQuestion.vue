@@ -62,7 +62,7 @@ export default {
                subjects: this.post.subjects.toLowerCase().split(', ')
           })
           .then(() => { 
-               location.replace('/');
+               location.replace('/home');
           })
           .catch((err) => { 
               console.log(err.message); 

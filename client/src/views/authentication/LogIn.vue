@@ -1,14 +1,14 @@
 <template>
      <div>
         
-         <div class = 'my-48 p-5 bg-gray-300'>  
+         <div class = 'my-48 p-5 bg-white'>  
               <h1 class = 'text-4xl font-bold mb-5'> Log In to <span class = 'font-bold bg-gray-500 text-white p-1 rounded'> 📚UnStuck  </span> </h1>
          <form @submit.prevent = "logIn()">
               <label class = 'font-bold text-2xl'>E-Mail</label><br>
               <input
                 type = 'email'
                 placeholder = 'Email'
-                class = 'm-2 p-2 w-1/2'
+                class = 'm-2 p-2 w-1/2 border-2 border-black'
                 v-model = 'user.email'
                 >
               <br>
@@ -16,7 +16,7 @@
               <input
                 type = 'password'
                 placeholder = 'password'
-                class = 'm-2 p-2 w-1/2'
+                class = 'm-2 p-2 w-1/2 border-2 border-black'
                 v-model = 'user.password'
               >
               <br>
@@ -37,7 +37,7 @@ export default {
         }
     },
     async mounted() { 
-          if (this.$store.state.loggedIn === true) return location.replace('/')
+          if (this.$store.state.loggedIn === true) return location.replace('/home')
     },
     methods: { 
         async logIn() { 
@@ -51,7 +51,7 @@ export default {
 
                         this.$store.commit("logIn"); 
 
-                        location.replace('/'); 
+                        location.replace('/home'); 
                   
               }
               catch(e) { 

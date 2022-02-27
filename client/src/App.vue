@@ -21,7 +21,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins&display=swap');
 
 body { 
-    background: #e0e4e7;
+    background: #cfd6f1;
 }
 pre { 
     font-family: Poppins, sans-serif

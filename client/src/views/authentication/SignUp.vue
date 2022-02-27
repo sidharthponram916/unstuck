@@ -1,7 +1,7 @@
 <template>
      <div>  
-         <div class = 'my-32 p-5 bg-gray-300'>  
-              <h1 class = 'text-4xl font-bold mb-5'> Log In to <span class = 'font-bold bg-gray-500 text-white p-1 rounded'>📚UnStuck</span> </h1>
+         <div class = 'my-20 p-5 bg-gray-100'>  
+              <h1 class = 'text-4xl font-bold mb-5'> Sign Up to <span class = 'font-bold bg-gray-500 text-white p-1 rounded'>📚UnStuck</span> </h1>
               <form @submit.prevent = "signUp()">
  
               <label class = 'font-bold text-2xl'>Display Name</label><br>
@@ -9,7 +9,7 @@
               <input
                 type = 'text'
                 placeholder = 'Enter a Display Name'
-                class = 'm-2 p-2 w-1/2'
+                class = 'm-2 p-2 w-1/2 border-2 border-black rounded'
                 v-model = 'user.display_name'
               >
               <br>
@@ -23,7 +23,7 @@
               <input
                 type = 'text'
                 placeholder = 'Enter your subjects here.'
-                class = 'm-2 p-2 w-1/2'
+                class = 'm-2 p-2 w-1/2 border-2 border-black'
                 v-model = 'user.subjects'
               >
               <br>
@@ -31,7 +31,7 @@
               <input
                 type = 'email'
                 placeholder = 'Enter your Email'
-                class = 'm-2 p-2 w-1/2'
+                class = 'm-2 p-2 w-1/2 border-2 border-black'
                 v-model = 'user.email'
                 >
               <br>
@@ -39,11 +39,11 @@
               <input
                 type = 'password'
                 placeholder = 'password'
-                class = 'm-2 p-2 w-1/2'
+                class = 'm-2 p-2 w-1/2 border-2 border-black'
                 v-model = 'user.password'
               >
               <br>
-              <button type = 'submit' class = 'p-2 m-2 bg-green-500 rounded text-white'>Log In</button>
+              <button type = 'submit' class = 'p-2 m-2 bg-green-500 rounded text-white'>Sign Up</button>
          </form>
          </div>
      </div>
@@ -62,7 +62,7 @@ export default {
          }
      },
      async mounted() { 
-        if (this.$store.state.loggedIn === true) return location.replace('/');
+        if (this.$store.state.loggedIn === true) return location.replace('/home');
      },
      methods: { 
          async signUp() { 
@@ -80,7 +80,7 @@ export default {
                       localStorage.setItem("id", data.user._id);
                 
                   this.$store.commit("logIn");                  
-                  location.replace('/')
+                  location.replace('/home')
               }
               catch (e) { 
                   alert("There was an error. Please fill out all fields!");

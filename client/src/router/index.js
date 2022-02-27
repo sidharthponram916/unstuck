@@ -6,9 +6,14 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/home',
     name: 'Home',
     component: Home
+  },
+  { 
+    path: '/', 
+    name: 'Start', 
+    component: () => import('../views/Start.vue')
   },
   { 
     path: '/login', 
@@ -29,7 +34,12 @@ const routes = [
     path: '/questions/:id', 
     name: "Questions", 
     component: () => import('../views/questions/QView.vue')
-  }
+  }, 
+  { 
+    path: '/profile/:id', 
+    name: 'Profile', 
+    component: () => import('../views/Profile.vue')
+  }, 
 ]
 
 const router = new VueRouter({

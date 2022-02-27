@@ -55,6 +55,8 @@
 </template>
 
 <script>
+import moment from 'moment'; 
+
 export default {
      data() { 
          return { 
@@ -68,9 +70,15 @@ export default {
 
           try { 
             let question = await this.$http.get(`/questions/find/${this.$route.params.id}`); 
-                 this.question = question.data; 
 
-            let comments= await this.$http.get(`/comments/all`); 
+                 question.data.createdAt = moment(question.data.createdAt).format('MM/DD/YY [at] hh:mm a')
+                 this.question = question.data; 
+                
+            let comments = await this.$http.get(`/comments/all`);
+                 for (let comment of comments.data) { 
+                       comment.createdAt = moment(comment.createdAt).format('MM/DD/YY [at] hh:mm a')
+                 } 
+
                  comments = comments.data.filter(comment => { 
                        return comment.post_id === this.$route.params.id
                  });
