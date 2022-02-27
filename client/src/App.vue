@@ -23,6 +23,9 @@ export default {
 body { 
     background: #e0e4e7;
 }
+pre { 
+    font-family: Poppins, sans-serif
+}
 #app {
   font-family: Poppins, sans-serif;
   -webkit-font-smoothing: antialiased;

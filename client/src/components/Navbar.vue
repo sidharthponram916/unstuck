@@ -16,7 +16,7 @@
             <a v-if = "$store.state.loggedIn == false" href = '/register' class = 'text-sm text-white'> Sign Up </a>
         </li> 
         <li class = 'ml-5'>
-            <a v-if = "$store.state.loggedIn == true" href = '' @click = 'logOut()' class = 'text-md text-white font-bold'>{{ this.$store.state.userData.displayName }}</a>
+            <a v-if = "$store.state.loggedIn == true" href = '' @click = 'logOut()' class = 'text-md text-white font-bold'>Log Out ({{ this.$store.state.userData.displayName }})</a>
         </li> 
     </ul>
   
